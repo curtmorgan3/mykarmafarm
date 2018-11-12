@@ -2,7 +2,9 @@
 
 It's time to farm karma in a way that's never been done before!
 ....probably.
-
+Wireframes:
+  1. https://wireframe.cc/UXIN66
+  2. https://wireframe.cc/VjUXWI
 ## User Stories
 The user will navigate to the RUKM and enter a subreddit in the search bar.\
 When the user selects the subreddit, the view is populated with the ten most successful posts in that subreddit this month.\
@@ -17,8 +19,8 @@ The user will then have the option of making a Google Calendar event to remind h
 ## Future Implementations
 1. Of the top ten posts, users are shown if those posts have been gilded and how many comments it has
 2. Using OAuth, the user can populate her Google Calendar with an event, showing:
-  1. The time the post should be submitted
-  2. The content of the post, provided by the user at time of event creation
+    1. The time the post should be submitted
+    2. The content of the post, provided by the user at time of event creation
 3. Using Oauth, the user can login with her Reddit credentials, and post the content directly from the app
 
 ## Required APIs and Data
@@ -31,6 +33,6 @@ Required data from a GET request to this API will include:
   5. over_18
   6. permalink
   7. title
-  8. url
+  8. url\
 All of these data are provided by the Reddit API and have been successfully retrieved via testing.\
 ![Image of api-test](./public/api-test.png)
