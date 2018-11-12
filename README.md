@@ -33,4 +33,4 @@ Required data from a GET request to this API will include:
   7. title
   8. url
 All of these data are provided by the Reddit API and have been successfully retrieved via testing. \n
-![Image of api-test](https://github.com/curtmorgan3/reddit-ultimate-karma/tree/master/public/api-test.png)
+![Image of api-test](./public/api-test.png)
