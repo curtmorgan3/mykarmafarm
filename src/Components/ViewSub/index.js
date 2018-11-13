@@ -1,9 +1,21 @@
 import React from 'react';
 
 function ViewSub(props){
-  console.log("view");
+  const currentSub = props.state.currentSub;
+  const posts = props.state.posts;
   return(
-    <h1>View Subreddit</h1>
+    <div>
+      <h1>{currentSub}</h1>
+      {posts.map(post => {
+        return(
+          <div className = 'post'>
+            <a href={'https://www.reddit.com'+post.data.permalink}>{post.data.title}</a>
+            <p>{post.data.created_utc}</p>
+            <p>{post.data.score}</p>
+          </div>
+        )
+      })}
+    </div>
   )
 }
 

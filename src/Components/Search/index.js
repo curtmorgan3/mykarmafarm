@@ -1,9 +1,20 @@
 import React from 'react';
 
 function Search(props){
-  console.log('search');
+  const currentSearch = props.state.currentSearch;
+  const posts = props.state.posts;
   return(
-    <h1>Search</h1>
+    <div>
+      <h1>Search</h1>
+      <form onSubmit={props.handleSubmit}>
+        <input type='text'
+               name='currentSearch'
+               value={currentSearch}
+               onChange={props.handleChange}
+        />
+        <input type='submit' value='Submit' />
+      </form>
+    </div>
   )
 }
 
