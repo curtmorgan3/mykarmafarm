@@ -1,7 +1,7 @@
 # Reddit Ultimate Karma Machine
 
-It's time to farm karma in a way that's never been done before!
-....probably.
+It's time to farm karma in a way that's never been done before!\
+....probably.\
 Wireframes:
   1. https://wireframe.cc/UXIN66
   2. https://wireframe.cc/VjUXWI
