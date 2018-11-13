@@ -1,4 +1,4 @@
-# Reddit Ultimate Karma Machine
+# Reddit Ultimate Karma Farm
 
 It's time to farm karma in a way that's never been done before!\
 ....probably.\
@@ -6,7 +6,7 @@ Wireframes:
   1. https://wireframe.cc/UXIN66
   2. https://wireframe.cc/VjUXWI
 ## User Stories
-The user will navigate to the RUKM and enter a subreddit in the search bar.\
+The user will navigate to the RUKF and enter a subreddit in the search bar.\
 When the user selects the subreddit, the view is populated with the ten most successful posts in that subreddit this month.\
 Below that, the user is shown the best time of day for a successful subreddit post, based on a bell curve of the top posts.\
 The user will then have the option of making a Google Calendar event to remind her to post for maximum karma.
