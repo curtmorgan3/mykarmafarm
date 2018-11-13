@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 
 function ViewSub(props){
   const currentSub = props.state.currentSub;
@@ -7,11 +8,14 @@ function ViewSub(props){
     <div>
       <h1>{currentSub}</h1>
       {posts.map(post => {
+        const time = moment.unix(post.data.created_utc).format('MMMM Do YYYY, h:mm:ss a');
         return(
-          <div className = 'post'>
+          <div className = 'post'
+               key={post.data.name}
+          >
             <a href={'https://www.reddit.com'+post.data.permalink}>{post.data.title}</a>
-            <p>{post.data.created_utc}</p>
-            <p>{post.data.score}</p>
+            <p>Posted At: {time}</p>
+            <p>Karma: {post.data.score}</p>
           </div>
         )
       })}
