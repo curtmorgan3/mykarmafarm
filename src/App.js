@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ViewController from './Components/ViewController'
 import {getPosts} from './services/api-helpers.js'
+import {calculateAverage} from './services/calculations.js'
 import './App.css';
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
       currentView: '',
       currentSearch: '',
       currentSub: '',
-      posts: []
+      posts: [],
+      average: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,9 +40,14 @@ class App extends Component {
       currentSearch: ''
     })
     const posts = await getPosts(this.state.currentSub);
-    this.setState({
+    await this.setState({
       posts: posts
     })
+    const average = await calculateAverage(this.state.posts);
+    await this.setState({
+      average: average
+    })
+
   }
 //******************************************
 
