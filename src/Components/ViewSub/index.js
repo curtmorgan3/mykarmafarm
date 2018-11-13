@@ -1,4 +1,5 @@
 import React from 'react';
+import Graph from '../Graph'
 import moment from 'moment';
 import './stylesheet.css'
 
@@ -23,13 +24,7 @@ function ViewSub(props){
         )
       })}
       </div>
-      <div className='graph'>
-        {props.state.average.map(hour => {
-          return(
-            <p>{hour[0]}: {hour[1].average}</p>
-          )
-        })}
-      </div>
+      <Graph average={props.state.average}/>
     </div>
   )
 }

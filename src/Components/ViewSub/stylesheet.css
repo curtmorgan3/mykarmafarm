@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .top-100{
@@ -10,20 +11,10 @@
   width: 80vw;
   overflow: scroll;
   margin-bottom: 25px;
+  border: 1px solid blue;
+  box-sizing: border-box;
 }
 .post{
   display: flex;
   align-items: center;
-}
-
-.graph{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  width: 80vw;
-  height: 25vh;
-}
-
-.graph p{
-  margin: 2px;
 }

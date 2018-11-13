@@ -1,0 +1,13 @@
+.graph{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 80vw;
+  height: 25vh;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.graph p{
+  margin: 2px;
+}

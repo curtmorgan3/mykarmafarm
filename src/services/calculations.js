@@ -20,6 +20,5 @@ export function calculateAverage(posts){
     data[hour].karma += post.data.score;
     data[hour].average = Math.ceil(data[hour].karma / data[hour].ctr)
   }
-  // return data;
   return Object.entries(data);
 }
