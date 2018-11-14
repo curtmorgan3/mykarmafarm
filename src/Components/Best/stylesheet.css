@@ -1,0 +1,17 @@
+.best-time{
+  display: flex;
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-child{
+  margin: 5px;
+  width: 15%;
+}
+
+.time{
+  margin: 5px;
+  width: 50%;
+  text-align: center;
+}

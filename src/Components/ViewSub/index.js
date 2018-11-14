@@ -1,5 +1,6 @@
 import React from 'react';
-import Graph from '../Graph'
+import Graph from '../Graph';
+import Best from '../Best';
 import moment from 'moment';
 import './stylesheet.css'
 
@@ -9,6 +10,7 @@ function ViewSub(props){
   return(
     <div className='results-view'>
       <h1>r/{currentSub}</h1>
+      <h3>Top 100 Posts this Week</h3>
       <div className='top-100' >
         {posts.map(post => {
         const date = moment.unix(post.data.created_utc).format('MMMM Do YYYY');
@@ -18,13 +20,15 @@ function ViewSub(props){
                key={post.data.name}
           >
             <a href={'https://www.reddit.com'+post.data.permalink}>{post.data.title} </a>{'\n'}
-            <p>Posted At: {date} {hour} </p>
+            <p>Posted At: {date}, {hour} </p>
             <p>Karma: {post.data.score}</p>
           </div>
         )
       })}
       </div>
       <Graph average={props.state.average}/>
+      <Best bestTime={props.state.bestTime}
+      />
     </div>
   )
 }

@@ -12,7 +12,7 @@ export function calculateAverage(posts){
     '06': {ctr: 0, karma: 0, average: 0}, '14': {ctr: 0, karma: 0, average: 0}, '22': {ctr: 0, karma: 0, average: 0},
     '07': {ctr: 0, karma: 0, average: 0}, '15': {ctr: 0, karma: 0, average: 0}, '23': {ctr: 0, karma: 0, average: 0},
   }
-  for(let i = 0; i<posts.length; i++){
+    for(let i = 0; i<posts.length; i++){
     let post = posts[i];
     const time = moment.unix(post.data.created_utc).format('HH:mm:ss a');
     const hour = time.charAt(0) + time.charAt(1)
@@ -21,4 +21,20 @@ export function calculateAverage(posts){
     data[hour].average = Math.ceil(data[hour].karma / data[hour].ctr)
   }
   return Object.entries(data);
+}
+
+
+export function findBestTime(average){
+  let best=['best', {ctr: 0, karma: 0, average: 0}];
+  average.map(hour => {
+    if(hour[1].average > best[1].average){
+      best = hour;
+    }
+  })
+  return best;
+}
+
+export function randMinutes(){
+  const minutes = Math.floor(Math.random() * Math.floor(59) );
+  return minutes;
 }
