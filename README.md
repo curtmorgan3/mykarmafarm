@@ -36,3 +36,11 @@ Required data from a GET request to this API will include:
   8. url\
 All of these data are provided by the Reddit API and have been successfully retrieved via testing.\
 ![Image of api-test](./public/api-test.png)
+
+Weekly Plan:
+Wed: Render best time to post on specific Subreddit
+     Minimal Styling for MVP
+Thurs: OAuth logging with Reddit credentials
+Fri: Stage posts for automatic posting
+Sat: styling
+Sun: refactor and clean up

@@ -22,20 +22,11 @@ function Graph(props){
   })
   data.series.push(karmaY)
 
-
   return(
     <div>
     <ChartistGraph data={data} options={options} type={type} />
     </div>
   )
-
 }
 
 export default Graph;
-
-
-// {average.map(hour => {
-//   return(
-//     <p key={hour[0]}>{hour[0]}: {hour[1].average}</p>
-//   )
-// })}
