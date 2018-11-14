@@ -1,5 +1,7 @@
 import moment from 'moment'
 
+
+
 export function calculateAverage(posts){
 
   const data = {
@@ -23,7 +25,6 @@ export function calculateAverage(posts){
   return Object.entries(data);
 }
 
-
 export function findBestTime(average){
   let best=['best', {ctr: 0, karma: 0, average: 0}];
   average.map(hour => {
@@ -37,4 +38,13 @@ export function findBestTime(average){
 export function randMinutes(){
   const minutes = Math.floor(Math.random() * Math.floor(59) );
   return minutes;
+}
+
+export function getRandomState(){
+  let text = '';
+  let possibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for(let i = 0; i < 10; i++){
+    text += possibilities.charAt(Math.floor(Math.random()*possibilities.length));
+  }
+  return text;
 }

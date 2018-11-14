@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ViewController from './Components/ViewController'
+import ViewController from './Components/ViewController';
+import Login from './Components/Login'
 import {getPosts} from './services/api-helpers.js'
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
@@ -61,6 +62,7 @@ class App extends Component {
       <div className="App">
         <button onClick={()=>this.setView('search')}>Search A Subreddit</button>
         <button onClick={()=>this.setView('viewSub')}>View A Subreddit</button>
+        <Login />
 
         <ViewController state={this.state}
                         handleChange={this.handleChange}
