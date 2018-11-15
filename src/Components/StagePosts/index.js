@@ -25,6 +25,9 @@ class StagePosts extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  componentDidMount(){
+    console.log(this.state.bestTime);
+  }
   async handleSubmit(evt){
     evt.preventDefault();
     const data = {
@@ -77,7 +80,7 @@ class StagePosts extends React.Component{
           {this.state.stagedPosts.map(post => (
             <div className = 'post'>
               <p>{post.title}</p>
-              <p>Time: {this.state.bestTime[0]}:{this.state.bestTime[1]}</p>
+              <p>Time: {this.state.bestTime[0]}</p>
               <p>Sub: {this.state.sr}</p>
             </div>
           ))}

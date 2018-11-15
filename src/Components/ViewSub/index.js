@@ -36,11 +36,9 @@ function ViewSub(props){
       </div>
       <Graph average={props.state.average}/>
       <Best bestTime={props.state.bestTime}
+            state={props.state}
       />
-      {props.state.loggedIn && <StagePosts currentSub={props.state.currentSub}
-                                           bestTime={props.state.bestTime}
 
-      />}
     </div>
   )
 }

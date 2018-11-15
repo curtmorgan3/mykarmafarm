@@ -1,4 +1,5 @@
 import React from 'react';
+import StagePosts from '../StagePosts'
 import {randMinutes} from '../../services/calculations.js'
 import './stylesheet.css'
 
@@ -15,7 +16,7 @@ function Best(props){
   }else{
     bestTime[0] = bestTime[0] + ':' + minutes + ' am';
   }
-
+  // console.log(bestTime[0]);
   const best = bestTime[1] ? bestTime[1].average : null ;
 
   return(
@@ -23,6 +24,10 @@ function Best(props){
       <h4 className='time-child'>We think the best time to post is </h4>
       <h1 className='time'>{bestTime[0]}</h1>
       <h4 className='time-child'>Average karma for this time is {best}</h4>
+      {props.state.loggedIn && !bestTime[0].includes('undefined')?<StagePosts currentSub={props.state.currentSub}
+                                                                              bestTime={bestTime}
+
+      /> : null}
     </div>
   )
 }
