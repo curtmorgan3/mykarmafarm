@@ -5,7 +5,6 @@ import Welcome from '../Welcome'
 import LoggedIn from '../LoggedIn'
 
 function ViewController(props){
-  const loggedIn = props.state.loggedIn
   const currentView = props.state.currentView;
   switch(currentView){
     case 'search':
@@ -15,9 +14,15 @@ function ViewController(props){
                    setView={props.setView}
             />;
     case 'viewSub':
-    return <ViewSub state={props.state}/>;
+    return <ViewSub state={props.state}
+                    setView={props.setView}
+            />;
     case 'loggedIn':
-    return <LoggedIn />
+    return <LoggedIn state={props.state}
+                     setView={props.setView}
+                     handleChange={props.handleChange}
+                     handleSubmit={props.handleSubmit}
+            />
     default:
     return <Welcome setView={props.setView}
                     handleLogin={props.handleLogin}

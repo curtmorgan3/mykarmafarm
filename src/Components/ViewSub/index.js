@@ -7,9 +7,16 @@ import './stylesheet.css'
 function ViewSub(props){
   const currentSub = props.state.currentSub;
   const posts = props.state.posts;
+  const loggedIn = props.state.loggedIn;
+
+
   return(
     <div className='results-view'>
       <h1>r/{currentSub}</h1>
+      {loggedIn ? <button>Post</button> : null}
+      {loggedIn ? <button onClick={()=> props.setView('loggedIn')}>Back</button>
+                : <button onClick={()=>props.setView('search')}>Back</button>
+      }
       <h3>Top 100 Posts this Week</h3>
       <div className='top-100' >
         {posts.map(post => {

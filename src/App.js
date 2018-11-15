@@ -86,8 +86,8 @@ class App extends Component {
 //******************************************
 
   async handleLogin(){
+    
     await login();
-
   }
 
   render() {
