@@ -17,6 +17,7 @@ const REDDIT_AUTHORIZE_URL = `https://www.reddit.com/api/v1/authorize?client_id=
 const TOP = 'top.json?limit=100&t=week'
 
 let userAuthToken = '';
+let userRefreshToken = '';
 
 //Check to see if user is logged in
 export async function loggedIn(){
@@ -46,6 +47,15 @@ export async function authorize(code){
   return user;
 }
 
+//Refresh access token, set to happen automatically after 59 minutes
+export async function refreshToken(){
+  let data = `grant_type=refresh_token&refresh_token=${userRefreshToken}`;
+  let config = {
+    headers:{Authorization:'Basic '+btoa(CLIENT_ID+':'+CLIENT_SECRET)}
+  }
+  const user = await axios.post(`${BASE_URL}api/v1/access_token`, data, config);
+  return user;
+}
 //Get top 100 posts of the week from currentSub, pass them to state.posts
 export async function getPosts(currentSub){
   const resp = await axios.get(BASE_URL+`r/${currentSub}/`+TOP);
@@ -54,8 +64,9 @@ export async function getPosts(currentSub){
 }
 
 //Get user information, pass name to state.currentUserName, pass user data to stat.currentUser
-export async function getUserData(userAuth){
+export async function getUserData(userAuth, refreshToken){
   userAuthToken = userAuth
+  userRefreshToken = refreshToken
   const resp = await axios.get(`${AUTH_URL}api/v1/me/`, {headers: {Authorization: 'bearer ' +userAuthToken}});
   return resp;
 }

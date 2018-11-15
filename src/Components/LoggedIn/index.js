@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from '../Search'
+import StagePosts from '../StagePosts'
 
 function LoggedIn(props){
   const userName = props.state.currentUserName
@@ -12,7 +13,7 @@ function LoggedIn(props){
               handleSubmit={props.handleSubmit}
               setView={props.setView}
       />
-      <button>Stage Posts</button>
+      <StagePosts />
     </div>
   )
 }

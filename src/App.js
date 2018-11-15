@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ViewController from './Components/ViewController';
 import StagePosts from './Components/StagePosts'
-import {getPosts, authorize, getUserData, loggedIn, login} from './services/api-helpers.js'
+import {getPosts, authorize, getUserData, loggedIn, login, refreshToken} from './services/api-helpers.js'
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
 
@@ -35,14 +35,15 @@ class App extends Component {
       })
       const userAuth = await authorize(code);
       await this.setState({
-        userAccessToken: userAuth.data.access_token
+        userAccessToken: userAuth.data.access_token,
+        userRefreshToken: userAuth.data.refresh_token
       })
-      const currentUser = await getUserData(this.state.userAccessToken)
+      const currentUser = await getUserData(this.state.userAccessToken, this.state.refresh_token)
       this.setState({
         currentUserName: currentUser.data.name,
         currentUser: currentUser.data
       })
-
+      setTimeout(refreshToken(), 354000000)
     }else{
       this.setState({
         loggedIn: false
@@ -87,8 +88,8 @@ class App extends Component {
 //******************************************
 
   async handleLogin(){
-
     await login();
+
   }
 
   render() {
@@ -101,7 +102,6 @@ class App extends Component {
                         handleLogin={this.handleLogin}
                         setView={this.setView}
         />
-        <StagePosts />
       </div>
     );
   }
