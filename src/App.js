@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ViewController from './Components/ViewController';
 import Login from './Components/Login'
-import {getPosts} from './services/api-helpers.js'
+import {getPosts, login} from './services/api-helpers.js'
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
 
@@ -14,13 +14,18 @@ class App extends Component {
       currentSub: '',
       posts: [],
       average: [],
-      bestTime: []
+      bestTime: [],
+      loggedIn: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
-
+  async componentDidMount(){
+    console.log('did mount');
+    await login();
+  }
   //***********View Controllers************
   setView(view){
     this.setState({
@@ -57,12 +62,19 @@ class App extends Component {
   }
 //******************************************
 
+  handleLogin(){
+    this.setState({
+      loggedIn: true
+    })
+
+  }
+
   render() {
     return (
       <div className="App">
         <button onClick={()=>this.setView('search')}>Search A Subreddit</button>
         <button onClick={()=>this.setView('viewSub')}>View A Subreddit</button>
-        <Login />
+        <Login handleLogin={this.handleLogin}/>
 
         <ViewController state={this.state}
                         handleChange={this.handleChange}

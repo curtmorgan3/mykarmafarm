@@ -2,8 +2,10 @@ import React from 'react';
 import Search from '../Search'
 import ViewSub from '../ViewSub'
 import Welcome from '../Welcome'
+import LoggedIn from '../LoggedIn'
 
 function ViewController(props){
+  const loggedIn = props.state.loggedIn
   const currentView = props.state.currentView;
   switch(currentView){
     case 'search':
@@ -14,7 +16,12 @@ function ViewController(props){
     case 'viewSub':
     return <ViewSub state={props.state}/>;
     default:
-    return <Welcome />
+      if(loggedIn === false){
+        return <Welcome />
+      }else{
+        return <LoggedIn />
+      }
+
   }
 }
 
