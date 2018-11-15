@@ -6,6 +6,7 @@ function Search(props){
   return(
     <div>
       <h1>Search</h1>
+      <button onClick={()=>props.setView('welcome')}>Back</button>
       <form onSubmit={props.handleSubmit}>
         <input type='text'
                name='currentSearch'

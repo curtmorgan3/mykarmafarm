@@ -4,7 +4,11 @@ function Welcome(props){
 
 
   return(
-    <h1>Welcome</h1>
+    <div>
+      <h1>Welcome</h1>
+      <button onClick={()=>props.setView('search')}>Search A Subreddit</button>
+      <button onClick={()=>props.handleLogin()}>Login with Reddit</button>
+    </div>
   )
 }
 

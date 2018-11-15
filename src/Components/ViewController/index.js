@@ -12,15 +12,16 @@ function ViewController(props){
     return <Search state={props.state}
                    handleChange={props.handleChange}
                    handleSubmit={props.handleSubmit}
+                   setView={props.setView}
             />;
     case 'viewSub':
     return <ViewSub state={props.state}/>;
+    case 'loggedIn':
+    return <LoggedIn />
     default:
-      if(loggedIn === false){
-        return <Welcome />
-      }else{
-        return <LoggedIn />
-      }
+    return <Welcome setView={props.setView}
+                    handleLogin={props.handleLogin}
+           />
 
   }
 }
