@@ -13,7 +13,7 @@ function LoggedIn(props){
               handleSubmit={props.handleSubmit}
               setView={props.setView}
       />
-      <StagePosts />
+      
     </div>
   )
 }

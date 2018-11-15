@@ -43,7 +43,7 @@ class App extends Component {
         currentUserName: currentUser.data.name,
         currentUser: currentUser.data
       })
-      setTimeout(refreshToken(), 354000000)
+      setInterval(refreshToken(), 360000000)
     }else{
       this.setState({
         loggedIn: false

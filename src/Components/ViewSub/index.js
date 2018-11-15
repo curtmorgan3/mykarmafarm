@@ -1,6 +1,7 @@
 import React from 'react';
 import Graph from '../Graph';
 import Best from '../Best';
+import StagePosts from '../StagePosts'
 import moment from 'moment';
 import './stylesheet.css'
 
@@ -36,6 +37,10 @@ function ViewSub(props){
       <Graph average={props.state.average}/>
       <Best bestTime={props.state.bestTime}
       />
+      {props.state.loggedIn && <StagePosts currentSub={props.state.currentSub}
+                                           bestTime={props.state.bestTime}
+
+      />}
     </div>
   )
 }

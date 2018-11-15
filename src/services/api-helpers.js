@@ -49,6 +49,7 @@ export async function authorize(code){
 
 //Refresh access token, set to happen automatically after 59 minutes
 export async function refreshToken(){
+  console.log('refresh');
   let data = `grant_type=refresh_token&refresh_token=${userRefreshToken}`;
   let config = {
     headers:{Authorization:'Basic '+btoa(CLIENT_ID+':'+CLIENT_SECRET)}

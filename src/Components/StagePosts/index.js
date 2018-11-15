@@ -2,15 +2,12 @@ import React from 'react';
 import Post from './Posts';
 import {newPost} from '../../services/api-helpers.js'
 
-//form: subreddit, title, url/text, repost?, nsfw?, spoiler?, video_url, flair_id, flair_text
-//form will create instance of Post, pass state down as data object
-//Post will make POST request with data, set on timeOut
 
 class StagePosts extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      sr: '',
+      sr: props.currentSub,
       title: '',
       text: '',
       url: '',
@@ -21,7 +18,8 @@ class StagePosts extends React.Component{
       spoiler: false,
       flair_id: '',
       flair_text: '',
-      stagedPosts: []
+      stagedPosts: [],
+      bestTime: props.bestTime
     }
     //bindings
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,6 +45,9 @@ class StagePosts extends React.Component{
     }
 
     const post = await newPost(data);
+    this.setState({
+      stagedPosts: [...this.state.stagedPosts, data]
+    })
   }
   handleChange(evt){
     this.setState({
@@ -57,9 +58,8 @@ class StagePosts extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className = 'newpost-form'>
         <form onSubmit={this.handleSubmit}>
-          <input type='text'value={this.state.sr} name='sr' placeholder ='SubReddit' onChange={this.handleChange}/>
           <input type='text'value={this.state.title} name='title' placeholder ='Title' onChange={this.handleChange}/>
           <input type='text'value={this.state.text} name='text' placeholder = 'Body' onChange={this.handleChange}/>
           <input type='text'value={this.state.url} name='url' placeholder ='Link/Image URL' onChange={this.handleChange}/>
@@ -72,6 +72,16 @@ class StagePosts extends React.Component{
           <label><input type='checkbox' value= {this.state.spoiler==='true'? 0:1}name='spoiler' onChange={this.handleChange}/>Spoiler</label>
           <input type='submit' value='Submit' />
         </form>
+
+        <div className = 'staged-posts'>
+          {this.state.stagedPosts.map(post => (
+            <div className = 'post'>
+              <p>{post.title}</p>
+              <p>Time: {this.state.bestTime[0]}:{this.state.bestTime[1]}</p>
+              <p>Sub: {this.state.sr}</p>
+            </div>
+          ))}
+        </div>
       </div>
     )
   }
