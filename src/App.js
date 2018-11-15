@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ViewController from './Components/ViewController';
+import StagePosts from './Components/StagePosts'
 import {getPosts, authorize, getUserData, loggedIn, login} from './services/api-helpers.js'
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
@@ -86,7 +87,7 @@ class App extends Component {
 //******************************************
 
   async handleLogin(){
-    
+
     await login();
   }
 
@@ -100,6 +101,7 @@ class App extends Component {
                         handleLogin={this.handleLogin}
                         setView={this.setView}
         />
+        <StagePosts />
       </div>
     );
   }

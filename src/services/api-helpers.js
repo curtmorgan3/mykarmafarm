@@ -16,7 +16,7 @@ const REDDIT_AUTHORIZE_URL = `https://www.reddit.com/api/v1/authorize?client_id=
 //************************************
 const TOP = 'top.json?limit=100&t=week'
 
-
+let userAuthToken = '';
 
 //Check to see if user is logged in
 export async function loggedIn(){
@@ -55,6 +55,23 @@ export async function getPosts(currentSub){
 
 //Get user information, pass name to state.currentUserName, pass user data to stat.currentUser
 export async function getUserData(userAuth){
-  const resp = await axios.get(`${AUTH_URL}api/v1/me/`, {headers: {Authorization: 'bearer ' +userAuth}});
+  userAuthToken = userAuth
+  const resp = await axios.get(`${AUTH_URL}api/v1/me/`, {headers: {Authorization: 'bearer ' +userAuthToken}});
   return resp;
+}
+
+//Post to a subreddit on user's behalf
+export async function newPost(data){
+
+  const url = queryString.stringify(data);
+  console.log(url);
+
+  try{
+    const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});
+    console.log('post: '+post);
+  }catch(error){
+    console.log(error);
+  }
+
+
 }
