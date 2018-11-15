@@ -32,7 +32,7 @@ export async function login(){
     headers:{Authorization:'Basic '+btoa(CLIENT_ID+':'+CLIENT_SECRET)}
   }
 
-
+// TODO: Oauth is working here, I THINK. access_token is being returned, need to wired up button to do /me/prefs get requests to test access
   const user = await axios.post(`${BASE_URL}api/v1/access_token`, data, config);
   console.log(user);
   // const resp = await axios.get(`https://www.reddit.com/api/v1/me/prefs`);
