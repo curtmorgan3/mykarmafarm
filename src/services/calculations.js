@@ -48,3 +48,32 @@ export function getRandomState(){
   }
   return text;
 }
+
+export function getTimer(bestTime){
+  //get current time, subtract time and return number of miliseconds inbetween
+  const s = moment().valueOf();
+  const now = moment(s).format('HH:mm'); //'15:23'
+  let nowSplit = now.split(':') //['15', '23']
+  let nowHour = parseInt(now); //15
+  let nowMinute = parseInt(nowSplit[1]); //23
+
+  const timeSplit = bestTime.split(' ') //['10:45', 'pm']
+  let time = timeSplit[0] //'10:45'
+  let minSplit = time.split(':'); //['10', '45']
+  let bestHour = parseInt(time); //10
+  let bestMinute = parseInt(minSplit) //45
+
+  if(bestMinute < 10){
+    bestMinute = '0'+bestMinute //add leading zero to minutes
+  }
+  if(timeSplit[1]==='pm'){
+    bestHour += 12;  //convert to 24 hour time
+  }
+  let timeToPost = bestHour+':'+bestMinute;
+
+  let postHourTimer = bestHour - nowHour;
+  let postMinuteTimer = bestMinute - nowMinute;
+  console.log('post in '+postHourTimer+' hours and '+postMinuteTimer+' minutes');
+
+
+}

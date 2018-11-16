@@ -15,6 +15,7 @@ function ViewSub(props){
     <div className='results-view'>
       <h1>r/{currentSub}</h1>
       {loggedIn ? <button>Post</button> : null}
+
       {loggedIn ? <button onClick={()=> props.setView('loggedIn')}>Back</button>
                 : <button onClick={()=>props.setView('search')}>Back</button>
       }

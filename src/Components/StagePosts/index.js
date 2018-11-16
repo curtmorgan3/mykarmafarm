@@ -7,7 +7,7 @@ class StagePosts extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      sr: props.currentSub,
+      sr: '',
       title: '',
       text: '',
       url: '',
@@ -19,14 +19,23 @@ class StagePosts extends React.Component{
       flair_id: '',
       flair_text: '',
       stagedPosts: [],
-      bestTime: props.bestTime
+      bestTime: ''
     }
     //bindings
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount(){
-    console.log(this.state.bestTime);
+    this.setState((state,props)=>({
+      bestTime: props.bestTime,
+      sr: props.currentSub
+    }));
+  }
+  componentWillReceiveProps(newProps){
+    this.setState({
+      bestTime: newProps.bestTime,
+      sr: newProps.currentSub
+    })
   }
   async handleSubmit(evt){
     evt.preventDefault();
@@ -47,7 +56,7 @@ class StagePosts extends React.Component{
 
     }
 
-    const post = await newPost(data);
+    const post = await newPost(data, this.state.bestTime);
     this.setState({
       stagedPosts: [...this.state.stagedPosts, data]
     })
@@ -80,7 +89,7 @@ class StagePosts extends React.Component{
           {this.state.stagedPosts.map(post => (
             <div className = 'post'>
               <p>{post.title}</p>
-              <p>Time: {this.state.bestTime[0]}</p>
+              <p>Time: {this.state.bestTime}</p>
               <p>Sub: {this.state.sr}</p>
             </div>
           ))}

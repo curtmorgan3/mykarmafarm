@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ViewController from './Components/ViewController';
-import StagePosts from './Components/StagePosts'
 import {getPosts, authorize, getUserData, loggedIn, login, refreshToken} from './services/api-helpers.js'
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
+
+// TODO: Get time in readable format for StagePosts, execute AJAX call at time
 
 class App extends Component {
   constructor(props){

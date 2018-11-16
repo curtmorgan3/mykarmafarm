@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import {getRandomState} from './calculations.js'
+import moment from 'moment'
+import {getRandomState, getTimer} from './calculations.js'
 import queryString from 'query-string'
 
 const CLIENT_ID = process.env.REACT_APP_REDDIT_CLIENT_ID;
@@ -57,6 +58,7 @@ export async function refreshToken(){
   const user = await axios.post(`${BASE_URL}api/v1/access_token`, data, config);
   return user;
 }
+
 //Get top 100 posts of the week from currentSub, pass them to state.posts
 export async function getPosts(currentSub){
   const resp = await axios.get(BASE_URL+`r/${currentSub}/`+TOP);
@@ -73,17 +75,19 @@ export async function getUserData(userAuth, refreshToken){
 }
 
 //Post to a subreddit on user's behalf
-export async function newPost(data){
+export async function newPost(data, time){
+  // TODO: given 10:00 format, find difference between now and then, setTimeout for difference
+  const timer = getTimer(time);
+
 
   const url = queryString.stringify(data);
-  console.log(url);
 
-  try{
-    const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});
-    console.log('post: '+post);
-  }catch(error){
-    console.log(error);
-  }
+  // try{
+  //   const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});
+  //   console.log('post: '+post);
+  // }catch(error){
+  //   console.log(error);
+  // }
 
 
 }
