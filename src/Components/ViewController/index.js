@@ -3,6 +3,7 @@ import Search from '../Search'
 import ViewSub from '../ViewSub'
 import Welcome from '../Welcome'
 import LoggedIn from '../LoggedIn'
+import Posts from '../Posts'
 
 function ViewController(props){
   const currentView = props.state.currentView;
@@ -16,12 +17,17 @@ function ViewController(props){
     case 'viewSub':
     return <ViewSub state={props.state}
                     setView={props.setView}
+                    handleStagedPosts={props.handleStagedPosts}
             />;
     case 'loggedIn':
     return <LoggedIn state={props.state}
                      setView={props.setView}
                      handleChange={props.handleChange}
                      handleSubmit={props.handleSubmit}
+            />
+    case 'posts':
+    return <Posts state={props.state}
+                  setView={props.setView}
             />
     default:
     return <Welcome setView={props.setView}

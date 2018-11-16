@@ -18,13 +18,15 @@ class App extends Component {
       bestTime: [],
       loggedIn: false,
       userAccessToken: '',
-      currentUserName: ''
+      currentUserName: '',
+      stagedPosts: []
     }
     //bindings
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.setView = this.setView.bind(this);
+    this.handleStagedPosts = this.handleStagedPosts.bind(this);
   }
 
   async componentDidMount(){
@@ -44,7 +46,7 @@ class App extends Component {
         currentUserName: currentUser.data.name,
         currentUser: currentUser.data
       })
-      setInterval(refreshToken(), 360000000)
+      setInterval(refreshToken(), 36000000)
     }else{
       this.setState({
         loggedIn: false
@@ -93,6 +95,12 @@ class App extends Component {
 
   }
 
+  handleStagedPosts(posts){
+    this.setState({
+      stagedPosts: [...this.state.stagedPosts, posts]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -101,6 +109,7 @@ class App extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         handleLogin={this.handleLogin}
+                        handleStagedPosts={this.handleStagedPosts}
                         setView={this.setView}
         />
       </div>

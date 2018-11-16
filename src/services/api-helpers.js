@@ -76,18 +76,17 @@ export async function getUserData(userAuth, refreshToken){
 
 //Post to a subreddit on user's behalf
 export async function newPost(data, time){
-  // TODO: given 10:00 format, find difference between now and then, setTimeout for difference
-  const timer = getTimer(time);
+  const timer = getTimer(time); //returns amount of miliseconds until request should be made
+  console.log(timer);
+  setTimeout(makePost(data),timer)
 
-
+}
+async function makePost(data){
   const url = queryString.stringify(data);
-
-  // try{
-  //   const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});
-  //   console.log('post: '+post);
-  // }catch(error){
-  //   console.log(error);
-  // }
-
+  try{
+    const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});
+  }catch(error){
+    console.log(error);
+  }
 
 }

@@ -25,7 +25,8 @@ function Best(props){
       <h4 className='time-child'>Average karma for this time is {avgKarma}</h4>
       {props.state.loggedIn && !bestTime[0].includes('undefined')?<StagePosts currentSub={props.state.currentSub}
                                                                               bestTime={bestTime[0]}
-
+                                                                              handleStagedPosts={props.handleStagedPosts}
+                                                                              setView={props.setView}
       /> : null}
     </div>
   )

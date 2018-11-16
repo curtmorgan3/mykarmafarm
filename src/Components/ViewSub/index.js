@@ -38,6 +38,8 @@ function ViewSub(props){
       <Graph average={props.state.average}/>
       <Best bestTime={props.state.bestTime}
             state={props.state}
+            handleStagedPosts={props.handleStagedPosts}
+            setView={props.setView}
       />
 
     </div>

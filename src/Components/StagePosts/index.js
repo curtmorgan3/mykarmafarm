@@ -1,5 +1,4 @@
 import React from 'react';
-import Post from './Posts';
 import {newPost} from '../../services/api-helpers.js'
 
 
@@ -18,7 +17,7 @@ class StagePosts extends React.Component{
       spoiler: false,
       flair_id: '',
       flair_text: '',
-      stagedPosts: [],
+      stagedPosts: {},
       bestTime: ''
     }
     //bindings
@@ -26,10 +25,11 @@ class StagePosts extends React.Component{
     this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount(){
-    this.setState((state,props)=>({
-      bestTime: props.bestTime,
-      sr: props.currentSub
-    }));
+    this.setState((state, props) => ({
+    bestTime: props.bestTime,
+    sr: props.currentSub
+  }));
+
   }
   componentWillReceiveProps(newProps){
     this.setState({
@@ -41,6 +41,7 @@ class StagePosts extends React.Component{
     evt.preventDefault();
     const data = {
       sr: this.state.sr,
+      bestTime: this.state.bestTime,
       title: this.state.title,
       text: this.state.text,
       url: this.state.url,
@@ -58,9 +59,13 @@ class StagePosts extends React.Component{
 
     const post = await newPost(data, this.state.bestTime);
     this.setState({
-      stagedPosts: [...this.state.stagedPosts, data]
+      stagedPosts: data
     })
+
+    this.props.handleStagedPosts(this.state.stagedPosts)
+    this.props.setView('posts')
   }
+
   handleChange(evt){
     this.setState({
       [evt.target.name]: evt.target.value
@@ -85,15 +90,7 @@ class StagePosts extends React.Component{
           <input type='submit' value='Submit' />
         </form>
 
-        <div className = 'staged-posts'>
-          {this.state.stagedPosts.map(post => (
-            <div className = 'post'>
-              <p>{post.title}</p>
-              <p>Time: {this.state.bestTime}</p>
-              <p>Sub: {this.state.sr}</p>
-            </div>
-          ))}
-        </div>
+
       </div>
     )
   }

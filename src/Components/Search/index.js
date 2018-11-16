@@ -9,6 +9,7 @@ function Search(props){
       {props.state.loggedIn ? null
                             : <button onClick={()=>props.setView('welcome')}>Back</button>
       }
+      
       <form onSubmit={props.handleSubmit}>
         <input type='text'
                name='currentSearch'
