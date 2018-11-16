@@ -4,7 +4,7 @@ import {getPosts, authorize, getUserData, loggedIn, login, refreshToken} from '.
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
 
-// TODO: Get time in readable format for StagePosts, execute AJAX call at time
+// TODO: Place submit now button on StagePosts
 
 class App extends Component {
   constructor(props){

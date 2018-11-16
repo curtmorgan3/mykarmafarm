@@ -81,7 +81,7 @@ export async function newPost(data, time){
   setTimeout(makePost(data),timer)
 
 }
-async function makePost(data){
+export async function makePost(data){
   const url = queryString.stringify(data);
   try{
     const post = await axios.post(`${AUTH_URL}api/submit.json`, url, {headers: {Authorization: 'bearer ' +userAuthToken}});

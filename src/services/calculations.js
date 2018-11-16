@@ -81,8 +81,8 @@ export function getTimer(bestTime){
   console.log('post in '+postHourTimer+' hours and '+postMinuteTimer+' minutes');
 
   let timer = 0;
-  timer += (36000000 * postHourTimer);
-  timer += (60000 * postMinuteTimer);
+  timer += (36000000 * postHourTimer); //convert to miliseconds
+  timer += (60000 * postMinuteTimer); //convert to miliseconds
 
   return timer;
 

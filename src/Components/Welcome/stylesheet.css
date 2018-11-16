@@ -1,0 +1,31 @@
+
+.welcome-view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.welcome-splash{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+img{
+  height: 50vh;
+  width: 60vw;
+}
+
+.welcome-nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-nav button{
+  margin: 20px;
+}

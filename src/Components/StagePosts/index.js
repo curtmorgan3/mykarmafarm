@@ -1,5 +1,5 @@
 import React from 'react';
-import {newPost} from '../../services/api-helpers.js'
+import {newPost, makePost} from '../../services/api-helpers.js'
 
 
 class StagePosts extends React.Component{
@@ -15,6 +15,7 @@ class StagePosts extends React.Component{
       repost: false,
       nsfw: false,
       spoiler: false,
+      postNow: false,
       flair_id: '',
       flair_text: '',
       stagedPosts: {},
@@ -57,13 +58,18 @@ class StagePosts extends React.Component{
 
     }
 
-    const post = await newPost(data, this.state.bestTime);
-    this.setState({
-      stagedPosts: data
-    })
+    if( (Boolean(parseInt(this.state.postNow))) ){
+      const postNow = await makePost(data);
+      this.props.setView('search')
+    }else{
+      const postLater = await newPost(data, this.state.bestTime);
+      this.setState({
+        stagedPosts: data
+      })
+      this.props.handleStagedPosts(this.state.stagedPosts)
+      this.props.setView('posts')
+    }
 
-    this.props.handleStagedPosts(this.state.stagedPosts)
-    this.props.setView('posts')
   }
 
   handleChange(evt){
@@ -84,9 +90,10 @@ class StagePosts extends React.Component{
           <input type='text'value={this.state.kind} name='kind' placeholder ='Type' onChange={this.handleChange}/>
           <input type='text'value={this.state.flair_id}  name='flair_id' placeholder ='Flair Type' onChange={this.handleChange}/>
           <input type='text'value={this.state.flair_name} name='flair_text' placeholder ='Flair Text' onChange={this.handleChange}/>
-          <label><input type='checkbox' value={this.state.repost==='true'? 0:1} name='repost' onChange={this.handleChange}/>Repost</label>
-          <label><input type='checkbox' value={this.state.nsfw==='true'? 0:1} name='nsfw' onChange={this.handleChange}/>NSFW</label>
-          <label><input type='checkbox' value= {this.state.spoiler==='true'? 0:1}name='spoiler' onChange={this.handleChange}/>Spoiler</label>
+          <label><input type='checkbox' value={this.state.repost==='1'? 0:1} name='repost' onChange={this.handleChange}/>Repost</label>
+          <label><input type='checkbox' value={this.state.nsfw==='1'? 0:1} name='nsfw' onChange={this.handleChange}/>NSFW</label>
+          <label><input type='checkbox' value= {this.state.spoiler==='1'? 0:1}name='spoiler' onChange={this.handleChange}/>Spoiler</label>
+          <label><input type='checkbox' value= {this.state.postNow==='1'? 0:1}name='postNow' onChange={this.handleChange}/>Post Now?</label>
           <input type='submit' value='Submit' />
         </form>
 

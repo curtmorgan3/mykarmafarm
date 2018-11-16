@@ -12,15 +12,25 @@ function ViewSub(props){
 
 
   return(
-    <div className='results-view'>
-      <h1>r/{currentSub}</h1>
-      {loggedIn ? <button>Post</button> : null}
+    <div className='viewSub-view'>
+    {loggedIn ? <button className='back-button' onClick={()=> props.setView('loggedIn')}>Back</button>
+              : <button className='back-button' onClick={()=>props.setView('search')}>Back</button>
+    }
+      <h1 className='subReddit'>r/{currentSub}</h1>
+      <div className = 'best-time'>
+        <Best bestTime={props.state.bestTime}
+              state={props.state}
+              handleStagedPosts={props.handleStagedPosts}
+              setView={props.setView}
+        />
+      </div>
 
-      {loggedIn ? <button onClick={()=> props.setView('loggedIn')}>Back</button>
-                : <button onClick={()=>props.setView('search')}>Back</button>
-      }
-      <h3>Top 100 Posts this Week</h3>
+      <div className='chart'>
+        <Graph average={props.state.average}/>
+      </div>
+
       <div className='top-100' >
+        <h3>Top 100 Posts this Week</h3>
         {posts.map(post => {
         const date = moment.unix(post.data.created_utc).format('MMMM Do YYYY');
         const hour = moment.unix(post.data.created_utc).format('hh:mm:ss a');
@@ -35,12 +45,7 @@ function ViewSub(props){
         )
       })}
       </div>
-      <Graph average={props.state.average}/>
-      <Best bestTime={props.state.bestTime}
-            state={props.state}
-            handleStagedPosts={props.handleStagedPosts}
-            setView={props.setView}
-      />
+
 
     </div>
   )
