@@ -17,7 +17,7 @@ const REDDIT_AUTHORIZE_URL = `https://www.reddit.com/api/v1/authorize?client_id=
 //************************************
 const TOP = 'top.json?limit=100&t=week'
 
-let userAuthToken = '';
+let userAuthToken = ''; 
 let userRefreshToken = '';
 
 //Check to see if user is logged in

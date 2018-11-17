@@ -4,14 +4,8 @@
   align-items: center;
 
 }
-
-.time-child{
-  margin: 5px;
-  width: 15%;
-}
-
 .time{
   margin: 5px;
-  width: 50%;
+  width: 100%;
   text-align: center;
 }

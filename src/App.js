@@ -79,6 +79,7 @@ class App extends Component {
       posts: posts
     })
     const average = await calculateAverage(this.state.posts);
+    console.log(average);
     await this.setState({
       average: average
     })
@@ -86,7 +87,6 @@ class App extends Component {
     await this.setState({
       bestTime: bestTime
     })
-
   }
 //******************************************
 

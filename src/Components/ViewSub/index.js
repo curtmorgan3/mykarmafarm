@@ -9,7 +9,7 @@ function ViewSub(props){
   const currentSub = props.state.currentSub;
   const posts = props.state.posts;
   const loggedIn = props.state.loggedIn;
-
+  console.log(props.state.bestTime);
 
   return(
     <div className='viewSub-view'>
@@ -17,6 +17,11 @@ function ViewSub(props){
               : <button className='back-button' onClick={()=>props.setView('search')}>Back</button>
     }
       <h1 className='subReddit'>r/{currentSub}</h1>
+
+      <div className='chart'>
+        <Graph average={props.state.average}/>
+      </div>
+      <h1 className='average-karma-header'></h1>
       <div className = 'best-time'>
         <Best bestTime={props.state.bestTime}
               state={props.state}
@@ -24,13 +29,12 @@ function ViewSub(props){
               setView={props.setView}
         />
       </div>
-
-      <div className='chart'>
-        <Graph average={props.state.average}/>
-      </div>
-
+      {props.state.bestTime[1] ? <h3 className='average-karma-header'
+                                 >Average karma for this time is {props.state.bestTime[1].average}
+                                 </h3>
+                               : null}
+      <h3 className='top-100-header'>Top 100 Posts this Week</h3>
       <div className='top-100' >
-        <h3>Top 100 Posts this Week</h3>
         {posts.map(post => {
         const date = moment.unix(post.data.created_utc).format('MMMM Do YYYY');
         const hour = moment.unix(post.data.created_utc).format('hh:mm:ss a');
@@ -38,9 +42,11 @@ function ViewSub(props){
           <div className = 'post'
                key={post.data.name}
           >
-            <a href={'https://www.reddit.com'+post.data.permalink}>{post.data.title} </a>{'\n'}
-            <p>Posted At: {date}, {hour} </p>
-            <p>Karma: {post.data.score}</p>
+            <a className='title'href={'https://www.reddit.com'+post.data.permalink}>{post.data.title}</a>
+            <p>Posted: {date}, {hour} Karma: {post.data.score}</p>
+            {post.data.thumbnail && post.data.thumbnail !== 'self'
+                  ? <img src={post.data.thumbnail} alt='Post Thumbnail'/>
+                  : null}
           </div>
         )
       })}
