@@ -26,3 +26,11 @@
 .search-form{
   margin-left: 5px;
 }
+.search-form input[type='submit']{
+  border-radius: 15%;
+  background-color: #FF4500;
+  color: #FFFFFF;
+}
+.search-form input[type='text']{
+  background-color: #FFFFFF;
+}

@@ -1,12 +1,6 @@
-.best-time{
+.loggedin-view{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-}
-.time{
-  margin: 5px;
-  width: 100%;
-  text-align: center;
 }

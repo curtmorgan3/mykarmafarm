@@ -27,6 +27,7 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.setView = this.setView.bind(this);
     this.handleStagedPosts = this.handleStagedPosts.bind(this);
+    this.deleteStagedPost = this.deleteStagedPost.bind(this);
   }
 
   async componentDidMount(){
@@ -100,7 +101,15 @@ class App extends Component {
       stagedPosts: [...this.state.stagedPosts, posts]
     })
   }
-
+  deleteStagedPost(postTitle){
+    console.log('delete post');
+    const stagedPosts = this.state.stagedPosts.filter(post =>
+      post.title !== postTitle
+    )
+    this.setState({
+      stagedPosts: stagedPosts
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -111,6 +120,7 @@ class App extends Component {
                         handleLogin={this.handleLogin}
                         handleStagedPosts={this.handleStagedPosts}
                         setView={this.setView}
+                        deleteStagedPost={this.deleteStagedPost}
         />
       </div>
     );

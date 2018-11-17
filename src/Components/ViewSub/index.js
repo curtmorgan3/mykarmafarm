@@ -9,15 +9,18 @@ function ViewSub(props){
   const currentSub = props.state.currentSub;
   const posts = props.state.posts;
   const loggedIn = props.state.loggedIn;
-  console.log(props.state.bestTime);
 
   return(
     <div className='viewSub-view'>
+    <div className='viewSub-nav-header'>
     {loggedIn ? <button className='back-button' onClick={()=> props.setView('loggedIn')}>Back</button>
               : <button className='back-button' onClick={()=>props.setView('search')}>Back</button>
     }
       <h1 className='subReddit'>r/{currentSub}</h1>
-
+      {loggedIn ? null
+                : <button className='login-button' onClick={()=> props.setView('welcome')}>Log in to post</button>
+      }
+      </div>
       <div className='chart'>
         <Graph average={props.state.average}/>
       </div>

@@ -1,9 +1,26 @@
+@media only screen and (max-width: 400px){
+  .chart {
+    width: 375px;
+  }
+  .top-100{
+    height: 50vh;
+  }
+}
+
 .viewSub-view{
   display: grid;
   grid-template-columns: 10vw auto 10vw ;
-  grid-template-rows: 5vh 5vh auto 5vh 5vh auto 5vh auto;
+  grid-template-rows: 5vh auto auto 5vh 5vh auto 5vh auto;
   align-items: center;
   justify-content: center;
+  width: auto;
+}
+.viewSub-nav-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row-start: 1;
+  grid-column-start: 2;
 }
 .back-button{
   grid-column-start: 2;
@@ -15,9 +32,13 @@
   grid-row-start: 1;
   grid-column-start: 2;
   text-align: center;
-  margin: 0;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .login-button{
+  grid-column-start: 2;
+  grid-row-start: 1;
+  width: 50px;
 
 }
 
@@ -30,8 +51,11 @@
   grid-column-start: 2;
   grid-row-start: 3;
   text-align: center;
+  overflow: auto;
 }
-
+.ct-series-a .ct-bar{
+  stroke: #FF4500;
+}
 .average-karma-header{
   grid-column-start: 2;
   grid-row-start: 4;
@@ -48,24 +72,29 @@
   height: 20vh;
   overflow: auto;
   margin-bottom: 25px;
+  max-width: 800px;
 }
 .post{
   grid-column-start: 2;
   grid-row-start: 8;
   display: flex;
   align-items: center;
-  border: 1px solid red;
+  border: 1px solid black;
+  background-color: #FFFFFF;
   box-sizing: border-box;
   height: 50%;
   overflow: hidden;
 }
 .title{
+  text-decoration: none;
   width: 40%;
+  background-color: #FFFFFF;
 }
 
 .post p{
-  font-size: 12px;
+  font-size: 14px;
   width: 20%;
+  background-color: #FFFFFF;
 }
 .post img{
   height: auto;

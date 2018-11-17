@@ -8,7 +8,7 @@ function Welcome(props){
     <div className='welcome-view'>
       <div className='welcome-splash'>
         <img src={require("../../images/snoo.jpg")} alt={"Snoo"}/>
-        <h1>Karma Farm</h1>
+        <h1 className='karma-farm'>Karma Farm</h1>
       </div>
       <div className='welcome-nav'>
         <button onClick={()=>props.setView('search')}>Search A Subreddit</button>

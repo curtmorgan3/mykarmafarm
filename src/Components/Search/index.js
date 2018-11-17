@@ -10,7 +10,7 @@ function Search(props){
         <img src={require('../../images/snoo_head.png')} alt={'Snoo Head'} />
       </div>
       <div className='search-field'>
-        {props.state.loggedIn ? null
+        {props.state.loggedIn ? <button onClick={()=>props.setView('posts')}>My Karma Farm</button>
                               : <button onClick={()=>props.setView('welcome')}>Back</button>
         }
         <h3>r/</h3>
@@ -21,7 +21,7 @@ function Search(props){
                   value={currentSearch}
                   onChange={props.handleChange}
             />
-            <input type='submit' value='Submit' />
+            <input type='submit' value='Search' />
           </form>
        </div>
       </div>

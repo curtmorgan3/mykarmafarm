@@ -28,6 +28,7 @@ function ViewController(props){
     case 'posts':
     return <Posts state={props.state}
                   setView={props.setView}
+                  deleteStagedPost={props.deleteStagedPost}
             />
     default:
     return <Welcome setView={props.setView}

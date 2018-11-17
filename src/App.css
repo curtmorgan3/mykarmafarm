@@ -1,0 +1,10 @@
+*{
+  font-family: IBMPlexSans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
+  background-color: #DAE0E6
+}
+
+button{
+  border-radius: 15%;
+  background-color: #FF4500;
+  color: #FFFFFF;
+}

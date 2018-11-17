@@ -1,14 +1,23 @@
 import React from 'react'
+import './stylesheet.css'
 
 function Post(props){
   let stagedPosts = props.state.stagedPosts;
 
   return(
-    <div>
+    <div className='post-view'>
       <button onClick={()=>props.setView('search')}>Back</button>
-      {stagedPosts.map(post => (
-        <h1>{post.title}, {post.sr}, {post.bestTime}</h1>
-      ))}
+      <h1 className='your-karma-farm'>Your Karma Farm</h1>
+      <div className='staged-posts'>
+        {stagedPosts.map(post => (
+          <div className='posts'>
+            <h3>{post.title}</h3>
+            <p>r/{post.sr}</p>
+            <p>Will Post: {post.bestTime}</p>
+            <button onClick={()=>props.deleteStagedPost(post.title)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

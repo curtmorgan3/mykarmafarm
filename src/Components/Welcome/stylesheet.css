@@ -6,7 +6,10 @@
   align-items: center;
 }
 
-
+.karma-farm{
+  font-size: 52px;
+  font-family: 'Noto Sans', sans-serif;
+}
 .welcome-splash{
   display: flex;
   flex-direction: column;
@@ -15,8 +18,8 @@
   margin-top: 5vh;
 }
 img{
-  height: 50vh;
-  width: 60vw;
+  height: 40vh;
+  width: 80vw;
 }
 
 .welcome-nav{

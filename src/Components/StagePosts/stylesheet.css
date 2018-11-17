@@ -1,0 +1,42 @@
+.newpost-form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 375px;
+}
+.newpost-form input{
+    background-color: #FFFFFF;
+}
+.newpost-form input[type="text"].title{
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+
+}
+
+.newpost-form input[type="checkbox"]{
+  margin-left: 5%;
+}
+.newpost-form p{
+  font-size: 14px;
+  margin: 0;
+}
+.newpost-form .body{
+  width: 100%;
+  height: 150px;
+  margin: 5px;
+  background-color: #FFFFFF;
+}
+.newpost-form .url{
+  width: 80%;
+  margin: 5px;
+}
+.newpost-form .video-url{
+  width: 80%;
+  margin: 5px;
+}
+.newpost-form input[type='submit']{
+  border-radius: 15%;
+  background-color: #FF4500;
+  color: #FFFFFF;
+}

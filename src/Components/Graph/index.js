@@ -2,7 +2,7 @@ import React from 'react'
 import Chartist from 'chartist'
 import ChartistGraph from 'react-chartist'
 import "../../../node_modules/chartist/dist/chartist.min.css"
-import './stylesheet.css'
+
 
 function Graph(props){
   const average = props.average.sort();
@@ -10,7 +10,7 @@ function Graph(props){
   const karmaY = [];
 
   let data = {labels:[], series:[]}
-  let options = {width: 800, height: 400};
+  let options = {width: 800, height: 300,};
   let type = 'Bar'
 
   average.map(hour=>{
@@ -23,7 +23,7 @@ function Graph(props){
   data.series.push(karmaY)
 
   return(
-    <div>
+    <div >
     <ChartistGraph data={data} options={options} type={type} />
     </div>
   )
