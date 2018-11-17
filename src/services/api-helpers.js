@@ -9,7 +9,7 @@ const CLIENT_SECRET = process.env.REACT_APP_REDDIT_CLIENT_SECRET;
 //*******Reddit URLs for auth ********
 const USER_AGENT = 'Web:reddit-karma-farm:v0.0.1(by /u/cem4k)'
 const REDDIT_STATE = getRandomState();
-const REDDIT_SCOPE = ['identity, edit, flair, history, modconfig, modflair, modlog, modposts, modwiki, mysubreddits, privatemessages, read, report, save, submit, subscribe, vote, wikiedit, wikiread']
+const REDDIT_SCOPE = ['identity, edit, flair, read, submit']
 const BASE_URL = 'https://www.reddit.com/';
 const AUTH_URL = 'https://oauth.reddit.com/';
 const REDIRECT = 'https://economic-vacation.surge.sh/'
@@ -17,7 +17,7 @@ const REDDIT_AUTHORIZE_URL = `https://www.reddit.com/api/v1/authorize?client_id=
 //************************************
 const TOP = 'top.json?limit=100&t=week'
 
-let userAuthToken = ''; 
+let userAuthToken = '';
 let userRefreshToken = '';
 
 //Check to see if user is logged in
