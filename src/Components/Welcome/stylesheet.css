@@ -16,10 +16,13 @@
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
+  height: 60vh;
+  width: 95vw;
 }
-img{
-  height: 40vh;
-  width: 80vw;
+#kf-web-logo{
+  height: 100%;
+  width: 100%;
+  max-width: 1080px;
 }
 
 .welcome-nav{

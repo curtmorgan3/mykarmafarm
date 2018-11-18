@@ -58,7 +58,8 @@ class App extends Component {
   //***********View Controllers************
   setView(view){
     this.setState({
-      currentView: view
+      currentView: view,
+      posts: []
     })
   }
 

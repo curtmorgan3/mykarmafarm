@@ -9,9 +9,10 @@ function ViewSub(props){
   const currentSub = props.state.currentSub;
   const posts = props.state.posts;
   const loggedIn = props.state.loggedIn;
-
+  if(posts.length === 100){
   return(
     <div className='viewSub-view'>
+
     <div className='viewSub-nav-header'>
     {loggedIn ? <button className='back-button' onClick={()=> props.setView('loggedIn')}>Back</button>
               : <button className='back-button' onClick={()=>props.setView('search')}>Back</button>
@@ -54,10 +55,11 @@ function ViewSub(props){
         )
       })}
       </div>
-
-
     </div>
   )
+  }else{
+    return(<div className='loading'><h1>Loading...</h1></div>)
+  }
 }
 
 export default ViewSub;

@@ -7,7 +7,8 @@ function Post(props){
   return(
     <div className='post-view'>
       <button onClick={()=>props.setView('search')}>Back</button>
-      <h1 className='your-karma-farm'>Your Karma Farm</h1>
+      <h1 className='your-karma-farm'>My Karma Farm</h1>
+      <img src={require('../../images/kf_app_logo.JPG')} alt={'Karma Farmer'} />
       <div className='staged-posts'>
         {stagedPosts.map(post => (
           <div className='posts'>

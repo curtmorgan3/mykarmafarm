@@ -10,9 +10,12 @@ function Best(props){
   if(minutes < 10){
     minutes = `0${minutes}`;
   }
+
   if(bestTime[0] > 12){
     bestTime[0] = parseInt(bestTime[0]) - 12;
     bestTime[0] = bestTime[0].toString() + ':' + minutes + ' pm';
+  }else if(bestTime[0] == 12){
+    bestTime[0] = bestTime[0].toString() + ':' + minutes + 'pm';
   }else{
     bestTime[0] = bestTime[0] + ':' + minutes + ' am';
   }

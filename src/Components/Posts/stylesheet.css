@@ -13,7 +13,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
+img{
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+}
 .posts{
   border: 1px solid #FF4500;
   box-sizing: border-box;
