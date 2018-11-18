@@ -1,5 +1,5 @@
 # Karma Farm
-![Image of app](./public/api-screenshot.png) \
+![Image of app](./public/app-screenshot.png) \
 Plant your karma seeds and watch them grow!\
 Watch the demonstration here: \
 https://www.youtube.com/watch?v=6ElSeGuKak4 \
@@ -8,7 +8,7 @@ Wireframes:
   2. https://wireframe.cc/VjUXWI
 
 **Original Art by McKinley Smith** \
-https://www.mckinleysmith.com \
+https://www.mckinleysmith.com
 ## User Stories
 The user will navigate to the RUKF and enter a subreddit in the search bar.\
 When the user selects the subreddit, the view is populated with the ten most successful posts in that subreddit this month.\
