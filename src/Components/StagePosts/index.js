@@ -71,7 +71,7 @@ class StagePosts extends React.Component{
       })
       this.props.handleStagedPosts(this.state.stagedPosts)
       this.props.setView('posts')
-    }
+    } 
 
   }
 
