@@ -12,7 +12,7 @@ const REDDIT_STATE = getRandomState();
 const REDDIT_SCOPE = ['identity, edit, flair, read, submit']
 const BASE_URL = 'https://www.reddit.com/';
 const AUTH_URL = 'https://oauth.reddit.com/';
-const REDIRECT = 'https://economic-vacation.surge.sh/'
+const REDIRECT = 'https://mykarma-farm.surge.sh/'
 const REDDIT_AUTHORIZE_URL = `https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=code&state=${REDDIT_STATE}&redirect_uri=${REDIRECT}&duration=permanent&scope=${REDDIT_SCOPE}`
 //************************************
 const TOP = 'top.json?limit=100&t=week'

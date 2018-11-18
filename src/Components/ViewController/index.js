@@ -4,6 +4,7 @@ import ViewSub from '../ViewSub'
 import Welcome from '../Welcome'
 import LoggedIn from '../LoggedIn'
 import Posts from '../Posts'
+import {Error} from '../Error'
 
 function ViewController(props){
   const currentView = props.state.currentView;
@@ -18,6 +19,7 @@ function ViewController(props){
     return <ViewSub state={props.state}
                     setView={props.setView}
                     handleStagedPosts={props.handleStagedPosts}
+                    handleLogin={props.handleLogin}
             />;
     case 'loggedIn':
     return <LoggedIn state={props.state}
@@ -30,6 +32,10 @@ function ViewController(props){
                   setView={props.setView}
                   deleteStagedPost={props.deleteStagedPost}
             />
+    case 'error':
+    return <Error setView={props.setView}
+                  state={props.state}
+          />
     default:
     return <Welcome setView={props.setView}
                     handleLogin={props.handleLogin}

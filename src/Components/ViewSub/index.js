@@ -19,7 +19,7 @@ function ViewSub(props){
     }
       <h1 className='subReddit'>r/{currentSub}</h1>
       {loggedIn ? null
-                : <button className='login-button' onClick={()=> props.setView('welcome')}>Log in</button>
+                : <button className='login-button' onClick={()=> props.handleLogin()}>Log in</button>
       }
       </div>
       <div className='chart'>

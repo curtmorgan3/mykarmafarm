@@ -4,8 +4,6 @@ import {getPosts, authorize, getUserData, loggedIn, login, refreshToken} from '.
 import {calculateAverage, findBestTime} from './services/calculations.js'
 import './App.css';
 
-// TODO: Place submit now button on StagePosts
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -76,12 +74,17 @@ class App extends Component {
       currentSub: this.state.currentSearch,
       currentSearch: ''
     })
-    const posts = await getPosts(this.state.currentSub);
-    await this.setState({
-      posts: posts
-    })
+    try{
+      const posts = await getPosts(this.state.currentSub);
+      await this.setState({
+        posts: posts
+      })
+    }catch(error){
+      this.setState({
+        currentView: 'error'
+      })
+    }
     const average = await calculateAverage(this.state.posts);
-    console.log(average);
     await this.setState({
       average: average
     })

@@ -108,7 +108,7 @@ class StagePosts extends React.Component{
           </span><br/>
           <span>
           <input type='text'value={this.state.url} name='url'
-                 placeholder ='Link/Image URL' onChange={this.handleChange}
+                 placeholder ='Link URL' onChange={this.handleChange}
                  className='url'/>
           </span><br/>
           <span>
